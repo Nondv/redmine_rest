@@ -2,7 +2,6 @@ require 'active_resource'
 
 require_relative 'collections/base'
 require_relative 'user'
-require_relative 'project'
 
 module RedmineRest
   module Models
@@ -15,18 +14,9 @@ module RedmineRest
       self.prefix = '/projects/:project_id/'
 
       has_one :author, class_name: User
-      has_one :project, class_name: Project
       
-      validates :title, :tracker_id, presence: true
-      
-      #
-      # Sets #project_id via Project object.
-      #
-      def project=(project)
-        fail ArgumentError unless project.is_a? Project
-        self.project_id = project.id
-      end
-      
+      validates :title, presence: true
+            
       #
       # Overrides parent method.
       # When we want to fetch one wiki, we need not to use prefix
