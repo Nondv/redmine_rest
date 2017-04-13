@@ -1,3 +1,3 @@
 module RedmineRest
-  VERSION = '0.8.0.2'.freeze
+  VERSION = '0.8.0.3'.freeze
 end

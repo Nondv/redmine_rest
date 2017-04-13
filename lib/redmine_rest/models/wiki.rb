@@ -1,12 +1,15 @@
 require 'active_resource'
 
+require_relative 'collections/base'
 require_relative 'user'
+
+=begin
 require_relative 'project'
 require_relative 'version'
 require_relative 'relation'
 require_relative 'tracker'
 require_relative 'attachment'
-require_relative 'collections/base'
+=end
 
 module RedmineRest
   module Models
@@ -19,10 +22,10 @@ module RedmineRest
       self.prefix = '/projects/:project_id/'
 
       has_one :author, class_name: User
+=begin
       has_one :project, class_name: Project
       has_one :parent, class_name: Wiki
       has_many :children, class_name: Wiki
-
       validates :title, :project_id, presence: true
 
       def project_id
@@ -65,6 +68,7 @@ module RedmineRest
         return super if block_given? || method.to_s.end_with?('?') || !args.empty?
         attributes[method]
       end
+=end      
     end
   end
 end
