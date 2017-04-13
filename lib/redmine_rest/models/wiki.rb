@@ -18,8 +18,8 @@ module RedmineRest
       # Overrides parent method.
       # When we want to fetch one wiki, we need not to use prefix
       #
-      def self.element_path(title, _prefix_options = {}, query_options = nil)
-        self.prefix+"wiki/#{URI.parser.escape title.to_s}#{format_extension}#{query_string(query_options)}"
+      def self.element_path(id, _prefix_options = {}, query_options = nil)
+        "/memberships/#{URI.parser.escape id.to_s}#{format_extension}#{query_string(query_options)}"
       end
       def self.collection_path(title, _prefix_options = {}, query_options = nil)
         self.prefix+"wiki/index#{format_extension}#{query_string(query_options)}"
