@@ -21,9 +21,9 @@ module RedmineRest
       # Overrides parent method.
       # When we want to fetch one membership, we need not to use prefix
       #
-      def self.element_path(id, _prefix_options = {}, query_options = nil)
-        self.prefix+"/memberships/#{URI.parser.escape id.to_s}#{format_extension}#{query_string(query_options)}"
-      end
+      #def self.element_path(id, _prefix_options = {}, query_options = nil)
+      #  self.prefix+"/memberships/#{URI.parser.escape id.to_s}#{format_extension}#{query_string(query_options)}"
+      #end
     end
   end
 end
