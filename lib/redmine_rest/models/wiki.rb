@@ -16,6 +16,7 @@ module RedmineRest
     class Wiki < ActiveResource::Base
       self.format = :xml
       self.collection_parser = Collections::Base
+      self.prefix = '/projects/:project_id/'
 
       has_one :author, class_name: User
       has_one :project, class_name: Project
