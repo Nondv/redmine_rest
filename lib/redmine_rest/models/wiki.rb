@@ -24,6 +24,10 @@ module RedmineRest
       def self.collection_path(title, _prefix_options = {}, query_options = nil)
         "/wiki/index#{format_extension}#{query_string(query_options)}"
       end      
+      def self.find(*args)
+        fail('Wiki can be loaded as :all only') unless args.size == 1 && args.first == :all
+        super
+      end      
     end
   end
 end
