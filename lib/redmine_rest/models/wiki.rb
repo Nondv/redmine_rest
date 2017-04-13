@@ -21,7 +21,15 @@ module RedmineRest
       self.collection_parser = Collections::Base
       self.prefix = '/projects/:project_id/'
 
-      has_one :author, class_name: User
+      #has_one :author, class_name: User
+      
+      #
+      # Overrides parent method.
+      # When we want to fetch one version, we need not to use prefix
+      #
+      def self.element_path(title, _prefix_options = {}, query_options = nil)
+        "/wiki/#{URI.parser.escape title.to_s}#{format_extension}#{query_string(query_options)}"
+      end      
 =begin
       has_one :project, class_name: Project
       has_one :parent, class_name: Wiki
