@@ -26,6 +26,12 @@ module RedmineRest
         prefix_options, query_options = split_options(prefix_options) if query_options.nil?
         "#{prefix(prefix_options)}wiki/index.#{format.extension}#{query_string(query_options)}"
       end
+      
+      def self.element_path(title, prefix_options = {}, query_options = nil)
+        check_prefix_options(prefix_options)
+        prefix_options, query_options = split_options(prefix_options) if query_options.nil?
+        "#{prefix(prefix_options)}wiki#{URI.parser.escape title}.#{format.extension}#{query_string(query_options)}"
+      end
     end
   end
 end
