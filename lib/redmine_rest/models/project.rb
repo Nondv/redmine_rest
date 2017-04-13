@@ -40,6 +40,10 @@ module RedmineRest
         Membership.all params: { project_id: id }
       end
 
+      def wikis
+        Wiki.all params: { project_id: id }
+      end
+
       def members(options = {})
         users = memberships
                 .map { |m| m.user? ? m.user : m.group.reload.users }
