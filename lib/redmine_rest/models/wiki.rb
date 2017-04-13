@@ -19,14 +19,10 @@ module RedmineRest
       # When we want to fetch one wiki, we need not to use prefix
       #
       def self.element_path(title, _prefix_options = {}, query_options = nil)
-        "/wiki/#{URI.parser.escape title.to_s}#{format_extension}#{query_string(query_options)}"
+        self.prefix+"wiki/#{URI.parser.escape title.to_s}#{format_extension}#{query_string(query_options)}"
       end
       def self.collection_path(title, _prefix_options = {}, query_options = nil)
-        "/wiki/index#{format_extension}#{query_string(query_options)}"
-      end      
-      def self.find(*args)
-        fail('Wiki can be loaded as :all only') unless args.size == 1 && args.first == :all
-        super
+        self.prefix+"wiki/index#{format_extension}#{query_string(query_options)}"
       end      
     end
   end
