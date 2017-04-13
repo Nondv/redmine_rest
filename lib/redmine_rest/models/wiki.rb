@@ -27,7 +27,7 @@ module RedmineRest
       def self.collection_path(prefix_options = {}, query_options = nil)
         check_prefix_options(prefix_options)
         prefix_options, query_options = split_options(prefix_options) if query_options.nil?
-        "ppp#{prefix(prefix_options)}wiki/index.#{format.extension}#{query_string(query_options)}"
+        "#{prefix(prefix_options)}wiki/index.#{format.extension}#{query_string(query_options)}"
       end
     end
   end
