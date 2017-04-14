@@ -14,7 +14,6 @@ module RedmineRest
       self.prefix = '/projects/:project_id/'
 
       has_one :author, class_name: User
-      has_one :parent, class_name: Wiki
       
       validates :title, presence: true
             
