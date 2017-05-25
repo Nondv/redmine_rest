@@ -34,6 +34,7 @@ module RedmineRest
     #
     class ModelConfigurator
       def configure_models(params)
+	print("++++++++++++++"+params.to_s)
         site = params[:site] || Issue.site
         user = user_for_models(params)
         password = params.key?(:password) ? params[:password] : Issue.password
@@ -47,6 +48,7 @@ module RedmineRest
 
       def change_models_params(params)
         Models::LIST.each do |m|
+	print("+++site ++"+m.site+" ++++"+params[:site]+"+++++"+params.to_s)
           m.site = params[:site]
           m.user = params[:user]
           m.password = params[:password]
