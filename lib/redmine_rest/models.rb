@@ -73,7 +73,7 @@ module RedmineRest
           m.sub_url = params[:sub_url]
           m.user = params[:user]
           m.password = params[:password]
-          m.ssl_options[:verify_mode] = params[:verify_mode]
+          m.ssl_options = {:verify_mode => params[:verify_mode] }
         end
       end
 
