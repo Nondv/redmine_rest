@@ -50,7 +50,7 @@ module RedmineRest
     class ModelConfigurator
       def configure_models(params)
         puts "change_models: "+ params[:verify_mode].to_s
-        puts "constant: "+er_url, verify_mode:OpenSSL::SSL::VERIFY_NONE.to_s
+        puts "constant: "+ verify_mode:OpenSSL::SSL::VERIFY_NONE.to_s
         uri = URI.parse(params[:site])
         site = uri.scheme+'://'+uri.host || Issue.site
         if (uri.port) then
