@@ -64,7 +64,8 @@ module RedmineRest
         change_models_params site: site,
           user: user,
           password: password,
-          sub_url: sub_url
+          sub_url: sub_url,
+          verify_mode: params[:verify_mode]
       end
 
       private
