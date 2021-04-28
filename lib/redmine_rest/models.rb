@@ -62,7 +62,8 @@ module RedmineRest
         change_models_params site: site,
           user: user,
           password: password,
-          sub_url: sub_url
+          sub_url: sub_url,
+          verify_mode: params[:verify_mode]
       end
 
       private
@@ -73,6 +74,9 @@ module RedmineRest
           m.sub_url = params[:sub_url]
           m.user = params[:user]
           m.password = params[:password]
+          if (params[:verify_mode] != nil) then
+            m.ssl_options = {:verify_mode => params[:verify_mode] }
+          end
         end
       end
 
