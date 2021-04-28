@@ -4,6 +4,7 @@ require_relative 'tracker'
 require_relative 'collections/base'
 require_relative 'version'
 require_relative 'membership'
+require_relative 'wiki'
 
 module RedmineRest
   module Models
@@ -38,6 +39,10 @@ module RedmineRest
 
       def memberships
         Membership.all params: { project_id: id }
+      end
+
+      def wikis
+        Wiki.all params: { project_id: id }
       end
 
       def members(options = {})
